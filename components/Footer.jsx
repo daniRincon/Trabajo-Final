@@ -1,10 +1,13 @@
+import { siteConfig } from "../data/content";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-gray-950 text-gray-400 py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
           {/* Marca */}
           <div>
             <div className="flex items-center gap-2 mb-3">
@@ -32,7 +35,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Recursos</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#fuentes" className="hover:text-white transition-colors">📖 Bibliografía (15 fuentes)</a></li>
+              <li><a href="#fuentes" className="hover:text-white transition-colors">📖 Bibliografía ({siteConfig.keywords.length > 0 ? "17 fuentes" : "fuentes"})</a></li>
               <li>
                 <a
                   href="https://doi.org/10.1287/orsc.5.1.14"
@@ -53,6 +56,29 @@ export default function Footer() {
                   🔗 Learning Organization – Garvin (1993)
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://doi.org/10.2307/2666999"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  🔗 Seguridad Psicológica – Edmondson (1999)
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Integrantes */}
+          <div>
+            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Integrantes</h3>
+            <ul className="space-y-2 text-sm">
+              {siteConfig.team.map((nombre) => (
+                <li key={nombre} className="flex items-start gap-2">
+                  <span className="mt-1 text-primary-400 flex-shrink-0">▸</span>
+                  <span>{nombre}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

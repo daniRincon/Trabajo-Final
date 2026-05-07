@@ -1,3 +1,5 @@
+import { siteConfig } from "../data/content";
+
 export default function Hero() {
   return (
     <section
@@ -27,10 +29,22 @@ export default function Hero() {
         </h1>
 
         {/* Subtítulo */}
-        <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
           Explora los pilares que transforman la información en ventaja competitiva:
           del conocimiento tácito a la memoria organizacional.
         </p>
+
+        {/* Integrantes */}
+        <div className="mb-8 inline-flex flex-wrap justify-center gap-x-4 gap-y-1">
+          {siteConfig.team.map((nombre) => (
+            <span
+              key={nombre}
+              className="text-white/60 text-sm font-medium"
+            >
+              {nombre}
+            </span>
+          ))}
+        </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4">
